@@ -1,9 +1,8 @@
 import React from 'react';
 import { Grid, GridColumn as Column } from '@progress/kendo-react-grid';
 import { orderBy, filterBy } from '@progress/kendo-data-query';
-import imageOui from '../assets/oui.jpg';
-import imageNo from '../assets/grumpy-cat-no-1.jpg';
 import swal from 'sweetalert2';
+import Discontinued from '../Discontinued';
 
 class BasicKendoTable extends React.PureComponent {
   state = { 
@@ -68,9 +67,7 @@ class BasicKendoTable extends React.PureComponent {
           cell={(props) => (
             <td>
               <input disabled type="checkbox" checked={props.dataItem[props.field]} />
-              {props.dataItem[props.field] ? 
-                <img src={imageOui} alt="oui" style={{margin: '10px', width: '60px'}}/>
-                : <img src={imageNo} alt="non" style={{margin: '10px', width: '60px'}}/>}
+              <Discontinued discontinued={props.dataItem[props.field]} />
             </td>
           )} 
         />

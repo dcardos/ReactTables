@@ -2,9 +2,8 @@ import React from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import matchSorter from 'match-sorter'
-import imageOui from '../assets/oui.jpg';
-import imageNo from '../assets/grumpy-cat-no-1.jpg';
 import swal from 'sweetalert2';
+import Discontinued from '../Discontinued';
 
 const onChangeFct = () => {alert('do something')}
 
@@ -36,9 +35,7 @@ const columns = [{
     Cell: row => (
         <div>
             <input disabled type="checkbox" checked={row.value} />
-            {row.value ? 
-                <img src={imageOui} alt="oui" style={{margin: '10px', width: '60px'}}/>
-                : <img src={imageNo} alt="non" style={{margin: '10px', width: '60px'}}/>}
+            <Discontinued discontinued={row.value} />
         </div>
     )
 }]
