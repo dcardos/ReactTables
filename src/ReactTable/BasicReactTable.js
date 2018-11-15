@@ -45,7 +45,7 @@ const columns = [{
 
 const basicReactTable = (props) => {
     return <ReactTable
-        style={{ height: '600px' }}
+        style={{ height: '500px' }}
         data={props.data}
         columns={columns}
         filterable

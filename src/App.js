@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import products from './products.json';
-import KendoBasicTable from './KendoReact/BasicKendoTable'
-import BasicReactTable from './ReactTable/BasicReactTable.js';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-import Swal from 'sweetalert2'
+import products from './products.json';
+import KendoBasicTable from './KendoReact/BasicKendoTable';
+import EditableKendoTable from './KendoReact/EditableKendoTable';
+import BasicReactTable from './ReactTable/BasicReactTable.js';
+import imageSenhora from './assets/senhora.jpg';
+import EditableReactTable from './ReactTable/EditableReactTable.js';
+
+const MySwal = withReactContent(Swal);
 
 class App extends React.Component {
 
@@ -21,20 +27,30 @@ class App extends React.Component {
     // }).then(() => {
     //   return MySwal.fire(<p>Shorthand works too</p>)
     // });
-    Swal('Olar', 'Senhora?', "success");
-
+    MySwal.fire({
+      title: <p>Senhora?</p>,
+      html: <img src={imageSenhora} style={{width: '475px'}} alt="Eu nunca fiz isso!"/>,
+      confirmButtonText: 'Mas por que a senhora está correndo?'
+    });
   }
 
   render() {
     console.log(products);
     return (
       <div>
-        <h1>Kendo Table</h1>
+        <h1>Basic Kendo Table</h1>
         <KendoBasicTable data={products} />
         <div style={{margin: '50px'}}/>
-        <h1>React Table</h1>
+        <h1>Basic React Table</h1>
         <BasicReactTable data={products} />
-        <button onClick={this.clickHandler} style={{margin: '30px'}}>Show SweetAlert2</button>
+        <div style={{margin: '50px'}}/>
+        <button onClick={this.clickHandler} style={{margin: '30px'}}>Easter Egg</button>
+        <div style={{margin: '50px'}}/>
+        <h1>Editable Kendo Table</h1>
+        <EditableKendoTable />
+        <div style={{margin: '50px'}}/>
+        <h1>Editable React Table</h1>
+        <EditableReactTable />
       </div>
     );
   }

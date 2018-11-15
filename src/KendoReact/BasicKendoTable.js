@@ -30,7 +30,7 @@ class BasicKendoTable extends React.PureComponent {
   render () {
     return ( 
       <Grid
-        style={{ height: '600px' }}
+        style={{ height: '500px' }}
         data={
           filterBy(
             orderBy(this.props.data
